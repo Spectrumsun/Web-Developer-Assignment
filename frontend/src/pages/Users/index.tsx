@@ -44,7 +44,7 @@ const Users = () => {
           </div>
 
           <div className="rounded-3xl overflow-hidden border border-[#E9EAEB]">
-            <table>
+            <table className="cursor-pointer w-full">
               <thead>
                 <tr>
                   <th className="text-[#535862] text-[14px] font-[500] p-[20px] text-left">Full Name</th>

@@ -24,7 +24,7 @@ const PostCard = ({ post, handleSelectDeletePost }: Props) => {
         >
           {post.title}
         </h3>
-        <p className="text-[#535862] text-[14px]">{post.body}</p>
+        <p className="text-[#535862] text-[14px] line-clamp-15 leading-[20px]">{post.body}</p>
     </div>
   )
 }
