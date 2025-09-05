@@ -59,3 +59,9 @@ export const deletePost = async (id: string) => {
   const { data } = await axios.delete(`http://localhost:3001/posts/${id}`);
   return data;
 };
+
+
+export const fetchUsersCount = async (): Promise<number> => {
+  const { data } = await axios.get(`http://localhost:3001/users/count`);
+  return data.count;
+};

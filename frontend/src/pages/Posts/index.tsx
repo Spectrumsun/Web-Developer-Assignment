@@ -105,7 +105,7 @@ const Posts = () => {
   return (
     <div className="users flex justify-center items-center">
       <div className="w-[60%] p-[20px]">
-        <div className="">
+        <div className="mb-[30px]">
           <button className="flex items-center gap-2 cursor-pointer mt-4" onClick={() => navigate('/')}>
             <ArrowBack />
             <p className="text-[#535862] font-[600] text-[14px]">Back to Users</p>
@@ -113,7 +113,7 @@ const Posts = () => {
         </div>
         <div>
           <h1  className="text-[36px] font-[500] text-[#181D27]">{user?.name}</h1>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 mt-[30px] mb-[30px]">
             <p className="text-[14px] text-[#535862] font-[400]">{user?.email}</p>
             <div className="w-[5px] h-[5px] bg-[#000] rounded-full"/>
             <p className="text-[14px] text-[#535862] font-[400]">{user?.totalPosts} Posts</p>
@@ -124,7 +124,7 @@ const Posts = () => {
         <div className="posts grid gap-[20px] mt-[24px]">
           <div className="posts__new flex items-center justify-center rounded-[8px]">
             <button 
-              className="flex flex-col items-center cursor-pointer" 
+              className="flex flex-col items-center cursor-pointer p-[50px]" 
               onClick={() => setToggleAddPost(true)}
             >
               <Plus />

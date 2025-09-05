@@ -1,39 +1,3 @@
-<!-- # Web Developer Assignment
-
-## Backend
- cd into backend 
- run npm install
- run npm start or npm run de
-
-### API Backend
-- User Endpoints:
-  - GET /users: Returns a list of users with pagination support.
-  - GET /users/count: Returns the total number of users.
-  -GET /users/:id : Returns a single user with the total post count they have added
-  - POST /users/adders: Adds a adders to a user.
-
-- Post Endpoint:
-  - GET /posts: Returns posts filtered by a specific user ID, using the userId query parameter (e.g., /posts?userId={userId}).
-  - GET /posts/count: Returns the total number of posts.
-  - POST /posts: Create a new post
-  - Delete /posts/:id: Delete a post
-
-
-
-## Front-End
-  cd into frontend
-  run npm install
-  run npm start or npm run dev
-
-### Front-End Features
- - View list of users 
- - View list of post by user
- - Add a new post 
- - Delete a post
- - View Post creator data at the top
-  -->
-
-
 # Web Developer Assignment
 
 ## Backend
