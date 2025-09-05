@@ -23,6 +23,7 @@ const Posts = () => {
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState({
     title: false,
     body: false,
@@ -32,7 +33,7 @@ const Posts = () => {
     queryFn: () => fetchUserById(userId ?? ""),
   });
 
-  const { data: posts = [], isLoading: postLoading, refetch } = useQuery<Post[]>({
+  const { data: posts = [], isLoading: postLoading } = useQuery<Post[]>({
     queryKey: ["posts", userId],
     queryFn: () => fetchPostByUserId(userId ?? ""),
   });
@@ -41,6 +42,10 @@ const Posts = () => {
     mutationFn: createPost,
     onSuccess: () => {
       setToggleAddPost(false);
+       setLoading(false);
+       setTitle("");
+       setBody("");
+       setError({ title: false, body: false });
       queryClient.invalidateQueries({ queryKey: ["posts"] });
     },
   });
@@ -49,6 +54,7 @@ const Posts = () => {
     mutationFn: (id: string) => deletePost(id),
     onSuccess: () => {
       setToggleDelete(false);
+      setLoading(false);
       queryClient.invalidateQueries({ queryKey: ["posts"] });
     },
   });
@@ -84,6 +90,7 @@ const Posts = () => {
     if(Object.values(check).includes(true)) return;
 
     if(user) {
+      setLoading(true);
       createPostQuery.mutate({ 
         title: title,
         body: body,
@@ -94,11 +101,12 @@ const Posts = () => {
 
   const handleDeletePost = async () => {
     if(selectedPost) {
+       setLoading(true);
       deletePostQuery.mutate(selectedPost.id);
     }
   }
 
-  if(isLoading || postLoading)  {
+  if(isLoading || postLoading || loading)  {
     return <LoadingDots />;
   }
 
