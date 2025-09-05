@@ -23,7 +23,7 @@ export interface User {
 
 export interface Post {
   id: string;
-  userId: number;
+  user_id: string;
   title: string;
   body: string;
 }
