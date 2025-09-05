@@ -43,16 +43,16 @@ const Users = () => {
             <h1 className="text-[60px] font-[500] text-[#181D27]">Users</h1>
           </div>
 
-          <div className="rounded-3xl">
+          <div className="rounded-3xl overflow-hidden border border-[#E9EAEB]">
             <table>
               <thead>
                 <tr>
-                  <th className="text-[#535862] text-[14px] font-[500]">Full Name</th>
-                  <th className="text-[#535862] text-[14px] font-[500]">Email</th>
-                  <th className="text-[#535862] text-[14px] font-[500]">Address</th>
+                  <th className="text-[#535862] text-[14px] font-[500] p-[20px] text-left">Full Name</th>
+                  <th className="text-[#535862] text-[14px] font-[500] p-[20px] text-left">Email Address</th>
+                  <th className="text-[#535862] text-[14px] font-[500]p-[20px]  text-left ">Address</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="divide-y divide-gray-200">
                 {users?.map((user: User) => {
                   const street = user.adders?.find(a => a.key === AdderKey.Street)?.value || "";
                   const city = user.adders?.find(a => a.key === AdderKey.City)?.value || "";
@@ -62,9 +62,9 @@ const Users = () => {
 
                   return (
                     <tr key={user.id} onClick={() => handleSelected(user)}>
-                      <td className="text-[#535862] text-[14px]">{user.name}</td>
-                      <td className="text-[#535862] text-[14px]">{user.email}</td>
-                      <td className="text-[#535862] text-[14px]">{address}</td>
+                      <td className="text-[#535862] text-[14px] p-[20px]">{user.name}</td>
+                      <td className="text-[#535862] text-[14px] p-[20px]">{user.email}</td>
+                      <td className="text-[#535862] text-[14px] p-[20px]">{address}</td>
                     </tr>
                   );
                 })}
