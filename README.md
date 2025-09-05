@@ -4,6 +4,7 @@
 ```bash
 cd backend
 npm install
+npm run db
 npm start   # or: npm run dev
 ```
 
@@ -47,6 +48,9 @@ erDiagram
         int id PK
         string name
         string email
+        string username
+        string phone
+
     }
     POSTS {
         int id PK
