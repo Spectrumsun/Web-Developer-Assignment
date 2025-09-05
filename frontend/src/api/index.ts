@@ -28,15 +28,18 @@ export interface Post {
   body: string;
 }
 
+const baseUrl = import.meta.env.VITE_BACKEND_URL;
+
+
 export const fetchUsers = async (pageNumber: number, pageSize: number): Promise<User[]> => {
-  const { data } = await axios.get("http://localhost:3001/users", {
+  const { data } = await axios.get(`${baseUrl}/users`, {
     params: { pageNumber, pageSize }
   });
   return data;
 };
 
 export const fetchUserById = async (userId: string): Promise<User & { totalPosts: number }> => {
-  const { data } = await axios.get(`http://localhost:3001/users/${userId}`);
+  const { data } = await axios.get(`${baseUrl}/users/${userId}`);
   return data;
 };
 
@@ -44,24 +47,24 @@ export const fetchUserById = async (userId: string): Promise<User & { totalPosts
 export const fetchPostByUserId = async (
   userId: string,
 ): Promise<Post[]> => {
-  const res = await fetch(`http://localhost:3001/posts?userId=${userId}`);
+  const res = await fetch(`${baseUrl}/posts?userId=${userId}`);
   if (!res.ok) throw new Error("Failed to fetch posts");
   return res.json(); 
 };
 
 export const createPost = async (newPost: { user_id: string; title: string; body: string }) => {
-  const res = await axios.post("http://localhost:3001/posts", newPost);
+  const res = await axios.post("${baseUrl}/posts", newPost);
   return res.data;
 };
 
 
 export const deletePost = async (id: string) => {
-  const { data } = await axios.delete(`http://localhost:3001/posts/${id}`);
+  const { data } = await axios.delete(`${baseUrl}/posts/${id}`);
   return data;
 };
 
 
 export const fetchUsersCount = async (): Promise<number> => {
-  const { data } = await axios.get(`http://localhost:3001/users/count`);
+  const { data } = await axios.get(`${baseUrl}/users/count`);
   return data.count;
 };
