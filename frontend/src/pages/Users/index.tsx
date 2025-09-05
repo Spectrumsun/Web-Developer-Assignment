@@ -32,6 +32,10 @@ const Users = () => {
     return <LoadingDots />;
   }
 
+  if (error) {
+    return <div className="text-red-500 text-center">Failed to load users</div>;
+  }
+
   console.log(users);
   
   const totalPages = totalCount ? Math.ceil(totalCount / pageSize) : 1;
@@ -51,7 +55,7 @@ const Users = () => {
                 <tr>
                   <th className="text-[#535862] text-[14px] font-[500] p-[20px] text-left">Full Name</th>
                   <th className="text-[#535862] text-[14px] font-[500] p-[20px] text-left">Email Address</th>
-                  <th className="text-[#535862] text-[14px] font-[500]p-[20px]  text-left ">Address</th>
+                  <th className="text-[#535862] text-[14px] font-[500] p-[20px]  text-left ">Address</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -60,13 +64,13 @@ const Users = () => {
                   const city = user.adders?.find(a => a.key === AdderKey.City)?.value || "";
                   const state = user.adders?.find(a => a.key === AdderKey.State)?.value || "";
                   const zipcode = user.adders?.find(a => a.key === AdderKey.Zipcode)?.value || "";
-                  const address = `${street}, ${state}, ${city}, ${zipcode}`;
+                  const address = [street, state, city, zipcode].filter(Boolean).join(", ");
 
                   return (
                     <tr key={user.id} onClick={() => handleSelected(user)}>
                       <td className="text-[#535862] text-[14px] p-[20px]">{user.name}</td>
                       <td className="text-[#535862] text-[14px] p-[20px]">{user.email}</td>
-                      <td className="text-[#535862] text-[14px] p-[20px]">{address}</td>
+                      <td className="text-[#535862] text-[14px] p-[20px] truncate">{address}</td>
                     </tr>
                   );
                 })}
@@ -75,7 +79,7 @@ const Users = () => {
           </div>
   
           <div className="flex justify-end mt-2">
-            {totalCount && (
+           {totalCount && totalPages > 1 && (
               <Pagination currentPage={pageNumber} totalPages={totalPages} onPageChange={setPageNumber} />
             )}
           </div> 
