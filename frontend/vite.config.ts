@@ -10,5 +10,5 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: "./src/test/test.config.ts",
   },
-  base: '/frontend/'
+  base: './'
 });
