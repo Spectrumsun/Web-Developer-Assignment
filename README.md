@@ -8,6 +8,9 @@ npm run db
 npm start   # or: npm run dev
 ```
 
+# URL
+ ``https://backend-8bxt.onrender.com``
+
 ### API Backend
 
 #### User Endpoints
@@ -31,6 +34,10 @@ cd frontend
 npm install
 npm start   # or: npm run dev
 ```
+
+# URL
+ ``https://frontend-web-bbrj.onrender.com``
+
 
 ### Frontend Features
 - View list of users.  
