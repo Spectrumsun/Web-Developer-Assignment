@@ -1,2 +1,6 @@
 # modules
 node_modules
+dist
+backend/dist
+frontend/dist
+frontend/build
