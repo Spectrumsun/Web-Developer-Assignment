@@ -10,9 +10,9 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: "./src/test/test.config.ts",
   },
-  base: '/',
-  build: {
-    outDir: '../frontend/dist', // ensure assets are in publish folder
-    emptyOutDir: true
-  }
+  // base: '/',
+  // build: {
+  //   outDir: '../frontend/dist', // ensure assets are in publish folder
+  //   emptyOutDir: true
+  // }
 });

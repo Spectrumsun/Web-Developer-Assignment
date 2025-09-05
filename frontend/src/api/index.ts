@@ -29,7 +29,7 @@ export interface Post {
 }
 
 const baseUrl = import.meta.env.VITE_BACKEND_URL;
-
+console.log(baseUrl, 'baseUrl')
 
 export const fetchUsers = async (pageNumber: number, pageSize: number): Promise<User[]> => {
   const { data } = await axios.get(`${baseUrl}/users`, {
@@ -53,7 +53,7 @@ export const fetchPostByUserId = async (
 };
 
 export const createPost = async (newPost: { user_id: string; title: string; body: string }) => {
-  const res = await axios.post("${baseUrl}/posts", newPost);
+  const res = await axios.post(`${baseUrl}/posts`, newPost);
   return res.data;
 };
 
