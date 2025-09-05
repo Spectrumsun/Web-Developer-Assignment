@@ -104,22 +104,28 @@ const Posts = () => {
 
   return (
     <div className="users flex justify-center items-center">
-      <div className="w-[60%] p-[20px]">
+      <div className="w-full sm:w-[90%] md:w-[70%] lg:w-[60%] xl:w-[50%]  p-[20px]">
         <div className="mb-[30px]">
           <button className="flex items-center gap-2 cursor-pointer mt-4" onClick={() => navigate('/')}>
             <ArrowBack />
             <p className="text-[#535862] font-[600] text-[14px]">Back to Users</p>
           </button>
         </div>
-        <div>
-          <h1  className="text-[36px] font-[500] text-[#181D27]">{user?.name}</h1>
-          <div className="flex items-center gap-2 mt-[30px] mb-[30px]">
-            <p className="text-[14px] text-[#535862] font-[400]">{user?.email}</p>
-            <div className="w-[5px] h-[5px] bg-[#000] rounded-full"/>
-            <p className="text-[14px] text-[#535862] font-[400]">{user?.totalPosts} Posts</p>
-          </div>
-        </div>
+       <div>
+        <h1 className="text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-[500] text-[#181D27]">
+          {user?.name}
+        </h1>
 
+        <div className="flex flex-wrap items-center gap-2 mt-[20px] mb-[20px] sm:mt-[25px] sm:mb-[25px] md:mt-[30px] md:mb-[30px]">
+          <p className="text-[12px] sm:text-[13px] md:text-[14px] text-[#535862] font-[400]">
+            {user?.email}
+          </p>
+          <div className="w-[5px] h-[5px] bg-[#000] rounded-full" />
+          <p className="text-[12px] sm:text-[13px] md:text-[14px] text-[#535862] font-[400]">
+            {user?.totalPosts} Posts
+          </p>
+        </div>
+      </div>
 
         <div className="posts grid gap-[20px] mt-[24px]">
           <div className="posts__new flex items-center justify-center rounded-[8px]">

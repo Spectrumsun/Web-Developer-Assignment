@@ -38,9 +38,11 @@ const Users = () => {
 
   return (
     <div className="users flex justify-center items-center mt-[100px]">
-      <div className="w-[60%]">
-          <div className="flex items-start w-full mb-[20px]">
-            <h1 className="text-[60px] font-[500] text-[#181D27]">Users</h1>
+      <div className="w-full sm:w-[90%] md:w-[70%] lg:w-[60%] xl:w-[50%] ">
+          <div className="flex items-start w-full mb-[20px] p-[10px]">
+          <h1 className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[60px] font-[500] text-[#181D27]">
+            Users
+          </h1>
           </div>
 
           <div className="rounded-3xl overflow-hidden border border-[#E9EAEB]">
