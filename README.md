@@ -40,13 +40,16 @@ npm start   # or: npm run dev
 
 
 ### Frontend Features
-- View list of users.  
-- View list of posts by user.  
+- View the list of users.  
+- View the list of posts by the user.  
 - Add a new post.  
 - Delete a post.  
 - View post creator data at the top.  
 
 ---
+
+## Test
+ - run `npm run test` - to run the unti tests
 
 ## Database Schema (ER Diagram)
 ```mermaid
