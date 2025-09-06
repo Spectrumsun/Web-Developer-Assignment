@@ -49,7 +49,7 @@ npm start   # or: npm run dev
 ---
 
 ## Test
- - run `npm run test` - to run the unti tests
+ - run `npm run test` - to run the unit tests
 
 ## Database Schema (ER Diagram)
 ```mermaid
